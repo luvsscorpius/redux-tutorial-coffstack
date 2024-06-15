@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { connect, useDispatch, useSelector } from 'react-redux'
+import { increment, incrementAmount } from './Features/Counter/Counter-slice'
 
 function App() {
 
@@ -10,12 +11,21 @@ function App() {
   const count = useSelector(state => state.counter.value)
   const dispatch = useDispatch()
 
+  // function handleOnClick() {
+  //   dispatch({type: 'counter/increment'})
+  // }
+
+  // function handleOnClickAmount() {
+  //   dispatch({type: 'counter/incrementAmount', payload: 5})
+  // }
+
+  // ReduxToolkit
   function handleOnClick() {
-    dispatch({type: 'counter/increment'})
-  }
+    dispatch(increment())
+  } 
 
   function handleOnClickAmount() {
-    dispatch({type: 'counter/incrementAmount', payload: 5})
+    dispatch(incrementAmount())
   }
 
   return (
